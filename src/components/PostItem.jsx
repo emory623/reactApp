@@ -4,8 +4,8 @@ const PostItem = (props) => {
     return (
         <div className='post'>
             <div className='post_content'>
-                <strong>{props.id}. {props.postHeader}</strong>
-                <div>{props.postHeader} - {props.postText}</div>
+                <strong>{props.key}. {props.post.title}</strong>
+                <div>{props.post.title} - {props.post.postText}</div>
             </div>
             <div className='post_btns'>
                 <button>delete post</button>
