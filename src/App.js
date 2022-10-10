@@ -6,11 +6,23 @@ import './styles/App.css';
 
 const App = () => { 
 
+  const [likes, setLikes] = useState(0)
+
+  function incr() {
+    setLikes(likes+1)
+  }
+  function decr() {
+    setLikes(likes-1)
+  }
+
   return (
     <div className="App">
-      hello
+      <h1>{likes}</h1>
+      <button onClick={incr}>Incr</button>
+      <button onClick={decr}>decr</button>
     </div>
   );
+
 }
 
 
