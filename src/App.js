@@ -1,25 +1,25 @@
 import {React, useState} from 'react';
-
 import './styles/App.css';
+import Counter from './components/Counter';
+import ClassCounter from './components/ClassCounter'
+import PostItem from './components/PostItem';
+import PostList from './components/PostList';
 
 
 
 const App = () => { 
 
-  const [likes, setLikes] = useState(0)
+  const [posts, setPosts] = useState([
+    {id:'1', title:'Python', body:'Decription'},
+    {id:'2', title:'JavaScript', body:'Decription'},
+    {id:'3', title:'React', body:'Decription'},
+    {id:'4', title:'Vue', body:'Decription'}
 
-  function incr() {
-    setLikes(likes+1)
-  }
-  function decr() {
-    setLikes(likes-1)
-  }
+  ])
 
   return (
     <div className="App">
-      <h1>{likes}</h1>
-      <button onClick={incr}>Incr</button>
-      <button onClick={decr}>decr</button>
+      <PostList posts={posts} title='Список постов'/>
     </div>
   );
 
