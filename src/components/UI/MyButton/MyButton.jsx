@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './Button.module.css'
+import classes from './MyButton.module.css'
 
-const Button = ({children, ...props}) => {
+const MyButton = ({children, ...props}) => {
     return (
         <button {...props} className={classes.myBtn}>
             {children}
@@ -9,4 +9,4 @@ const Button = ({children, ...props}) => {
     );
 };
 
-export default Button;
+export default MyButton;

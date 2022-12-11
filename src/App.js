@@ -3,6 +3,8 @@ import './styles/App.css';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm/PostForm';
 import PostFilter from './components/PostFilter';
+import MyModal from './components/UI/MyModal/MyModal';
+import MyButton from './components/UI/MyButton/MyButton';
 
 
 
@@ -15,6 +17,8 @@ const App = () => {
     {id:'4', title:'Vue', body:'Decription'}
 
   ])
+
+  const [modal, setModal] = useState(false)
 
   const [filter, setFilter] = useState({sort:'', query: ''})
 
@@ -33,6 +37,7 @@ const App = () => {
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost])
+    setModal(false)
   }
 
   const removePost = (post) => {
@@ -41,7 +46,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <PostForm create={createPost}/>
+      <MyButton style={{marginTop:'30px'}} onClick={() => setModal(true)}>
+        Создать пост
+      </MyButton>
+      <MyModal visible={modal} setVisible={setModal}>
+        <PostForm create={createPost}/>
+      </MyModal>
       <hr style={{margin:'15px 0'}}/>
       <PostFilter filter={filter} setFilter={setFilter}/>
       <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Список постов'/>
