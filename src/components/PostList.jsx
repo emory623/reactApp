@@ -10,13 +10,13 @@ const PostList = ({title,posts,remove}) => {
         <div>
             <h1 style={{textAlign:'center'}}>{title}</h1>
             <TransitionGroup>
-                {posts.map((post, index) => 
-                    <CSSTransition 
-                        timeout={500}
+                {posts.map((post, index) =>
+                    <CSSTransition
                         key={post.id}
-                        className="post"
+                        timeout={500}
+                        classNames="post"
                     >
-                        <PostItem remove={remove} number={index+1} post={post} />
+                        <PostItem remove={remove} number={index + 1} post={post} />
                     </CSSTransition>
                 )}
             </TransitionGroup>
