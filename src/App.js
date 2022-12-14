@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import './styles/App.css';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm/PostForm';
@@ -13,12 +13,13 @@ import axios from 'axios';
 const App = () => { 
 
   const [posts, setPosts] = useState([])
-
   const [modal, setModal] = useState(false)
-
   const [filter, setFilter] = useState({sort:'', query: ''})
-
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost])
